@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Definición de la vista de formulario para res.config.settings -->
+        <record id="ems_res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">.ems_res.config.settings.view.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//form[hasclass('oe_form_configuration')]" position="inside">
+                   <app data-string="EMS" string="EMS" name="nthub_ems">
+                        <block title="Sistema de Gestión Educativa">
+                            <setting help="Definir Tipo de Evaluación">
+                                <field name="evaluation_type"/>
+                            </setting>
+                        </block>
+                    </app>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Definición de la acción de ventana para res.config.settings -->
+        <record id="ems_settings_action" model="ir.actions.act_window">
+            <field name="name">Configuración</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'nthub_ems', 'bin_size': False}</field>
+        </record>
+    </data>
+</odoo>

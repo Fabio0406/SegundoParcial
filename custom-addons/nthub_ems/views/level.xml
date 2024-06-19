@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--definir una vista de formulario -->
+        <record id="level_form_view" model="ir.ui.view">
+            <field name="name">formulario_de_nivel</field>
+            <field name="model">level</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Ingrese Nombre" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="alternative_name" />
+                                <field name="sum_mark_level" />
+                                <field name="final_year" />
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--definir una vista de árbol -->
+        <record id="level_view_tree" model="ir.ui.view">
+            <field name="name">vista_de_árbol_de_nivel</field>
+            <field name="model">level</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1" string="Nivel">
+                    <field name="name" />
+                    <field name="alternative_name" />
+                    <field name="sum_mark_level" />
+                </tree>
+            </field>
+        </record>
+        
+        <!--definir una acción de vista -->
+        <record id="level_action" model="ir.actions.act_window">
+            <field name="name">Nivel</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">level</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
