@@ -11,8 +11,6 @@
                     <field name="alternative_name" />
                     <field name="instructor_ids" widget="many2many_tags" />
                     <field name="level_id" />
-                    <field name="department_id" />
-                    <field name="sub_department_id" />
                     <field name="code" />
                     <field name="total_mark" />
                 </tree>
@@ -36,8 +34,6 @@
                                 <field name="alternative_name" />
                                 <field name="code" />
                                 <field name="level_id" />
-                                <field name="department_id" options="{'no_open': True, 'no_create': True}" />
-                                <field name="sub_department_id" options="{'no_open': True, 'no_create': True}" />
                                 <field name="instructor_ids" options="{'no_open': True, 'no_create': True}" widget="many2many_tags" />
                             </group>
                             <group string="Evaluation Data">
@@ -68,9 +64,7 @@
             <field name="arch" type="xml">
                 <search>
                     <group expand="0" string="Group By">
-                        <filter string="Level" name="group_by_level_id" context="{'group_by': 'level_id'}" />
-                        <filter string="Department" name="group_by_department_id" context="{'group_by': 'department_id'}" />
-                        <filter string="Division" name="group_by_sub_department_id" context="{'group_by': 'sub_department_id'}" />
+                        <filter string="Level" name="group_by_level_id" context="{'group_by': 'level_id'}" />                       
                     </group>
                 </search>
             </field>
